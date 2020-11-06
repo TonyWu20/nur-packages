@@ -104,8 +104,8 @@ rec {
 
   # Singularity
   singularity = pkgs.callPackage ./pkgs/singularity { 
-    buildGoModule = pkgs.buildGo113Module;
-    go = pkgs.go_1_13;
+    buildGoModule = pkgs.buildGo114Module;
+    go = pkgs.go_1_14;
   };
 
   # PLPlot
