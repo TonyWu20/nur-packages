@@ -77,5 +77,6 @@ buildGoModule rec {
     license = licenses.bsd3;
     platforms = platforms.linux;
     maintainers = [ maintainers.jbedo ];
+    broken = true;
   };
 }
