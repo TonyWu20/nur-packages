@@ -169,5 +169,8 @@ rec {
     gts = gts121130;
   };
 
+  # Iqtree
+  iqtree = pkgs.callPackage ./pkgs/iqtree  { };
+
 }
 
