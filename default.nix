@@ -172,5 +172,8 @@ rec {
   # Iqtree
   iqtree = pkgs.callPackage ./pkgs/iqtree  { };
 
+  # Beagle
+  beagle = pkgs.callPackage ./pkgs/beagle  { };
+
 }
 
