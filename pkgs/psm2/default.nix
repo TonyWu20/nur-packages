@@ -1,4 +1,4 @@
-{ stdenv, fetchFromGitHub, numactl, pkgconfig }:
+{ lib, stdenv, fetchFromGitHub, numactl, pkgconfig }:
 
 stdenv.mkDerivation rec {
   name = "opa-psm2-${version}";
@@ -31,10 +31,10 @@ stdenv.mkDerivation rec {
     rmdir $out/usr
   '';
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     homepage = https://github.com/intel/opa-psm2;
     description = "The PSM2 library supports a number of fabric media and stacks";
-    license = stdenv.lib.licenses.gpl2;
+    license = licenses.gpl2;
     platforms = platforms.linux;
     maintainers = [ maintainers.bzizou ];
   };
