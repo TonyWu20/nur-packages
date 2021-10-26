@@ -13,7 +13,7 @@ packages="intel-compilers-2019"
 # Use the following once to populate cache with older versions
 #packages="intel-compilers-2019 intel-compilers-2018 intel-compilers-2017"
 
-channels="https://github.com/NixOS/nixpkgs/archive/nixos-21.05.tar.gz https://github.com/NixOS/nixpkgs/archive/nixos-20.09 https://github.com/NixOS/nixpkgs/archive/nixos-20.03.tar.gz https://github.com/NixOS/nixpkgs/archive/nixos-19.09.tar.gz"
+channels="https://github.com/NixOS/nixpkgs/archive/nixos-21.05.tar.gz https://github.com/NixOS/nixpkgs/archive/nixos-20.03.tar.gz https://github.com/NixOS/nixpkgs/archive/nixos-19.09.tar.gz"
 
 build () {
   for p in $1

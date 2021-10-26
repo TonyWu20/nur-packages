@@ -23,7 +23,7 @@ stdenv.mkDerivation rec {
       fi
     done
     # Fixing man path
-    rm -f $out/man
+    #rm -f $out/man
     mkdir -p $out/share
     ln -s ../compilers_and_libraries/linux/man/common $out/share/man
   '';
