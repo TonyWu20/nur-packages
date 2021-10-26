@@ -25,12 +25,12 @@ perl -pi -e "s/sandbox = false/sandbox = true/" ~/.config/nix/nix.conf
 c="nixos-21.05"
 
 export NIX_PATH="nixpkgs=channel:$c"
-build "hello gerris obitools3 openmpi openmpi1 openmpi2 openmpi2-opa openmpi2-ib openmpi3 openmpi4 petscComplex petscReal arpackNG gmt szip mpi-ping hoppet applgrid fate migrate gdl zonation-core scotch-mumps hpl"
+build "hello gerris obitools3 siesta openmpi openmpi1 openmpi2 openmpi2-opa openmpi2-ib openmpi3 openmpi4 fate zonation-core scotch-mumps hpl"
 
 ###### PACKAGES FOR OLD CHANNEL #######
 c="nixos-20.03"
 export NIX_PATH="nixpkgs=channel:$c"
-build "hello gerris openmpi openmpi1 openmpi2 openmpi2-opa openmpi2-ib openmpi3 openmpi4 petscComplex petscReal arpackNG gmt szip mpi-ping hoppet applgrid fate migrate gdl zonation-core scotch-mumps hpl"
+build "hello gerris openmpi openmpi1 openmpi2 openmpi2-opa openmpi2-ib openmpi3 openmpi4 fate  zonation-core scotch-mumps hpl"
 
 
 # Build packages that need sandboxing disabled
