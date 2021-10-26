@@ -1,4 +1,4 @@
-{ stdenv, fetchFromGitHub, boost, cmake, eigen }:
+{ lib, stdenv, fetchFromGitHub, boost, cmake, eigen }:
 
 stdenv.mkDerivation rec {
   version = "2.1.2"; 
@@ -17,8 +17,8 @@ stdenv.mkDerivation rec {
   meta = {
      description = "efficient and versatile phylogenomic software by maximum likelihood";
      homepage = http://www.iqtree.org;
-     license = with stdenv.lib.licenses; [ gpl2 ];
-     maintainers = with stdenv.lib.maintainers; [ bzizou ];
+     license = with lib.licenses; [ gpl2 ];
+     maintainers = with lib.maintainers; [ bzizou ];
   };
 }
 

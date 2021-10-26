@@ -53,5 +53,6 @@ with stdenv;
     license = lib.licenses.bsd3;
     maintainers = [ lib.maintainers.bzizou ];
     platforms = lib.platforms.all;
+    broken = true;
   };
 }

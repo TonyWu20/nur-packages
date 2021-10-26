@@ -1,7 +1,7 @@
 { stdenv, fetchurl, mpi ,file }:
     
 stdenv.mkDerivation rec {
-  name = "-${version}";
+  name = "osu-micro-benchmarks-${version}";
   version = "5.8";
   src = fetchurl {
     url = "https://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-${version}.tgz";
