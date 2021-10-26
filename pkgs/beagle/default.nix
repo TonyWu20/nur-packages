@@ -1,4 +1,4 @@
-{ stdenv, fetchFromGitHub, autoconf, automake, pkg-config, libtool, openjdk }:
+{ lib, stdenv, fetchFromGitHub, autoconf, automake, pkg-config, libtool, openjdk }:
 #{ stdenv, fetchFromGitHub, autoconf, automake, pkg-config, libtool, openjdk, ocl-icd, intel-ocl, opencl-headers }:
 
 stdenv.mkDerivation rec {
@@ -27,8 +27,8 @@ stdenv.mkDerivation rec {
   meta = {
      description = "high-performance library that can perform the core calculations at the heart of most Bayesian and Maximum Likelihood phylogenetics packages";
      homepage = https://github.com/beagle-dev/beagle-lib;
-     license = with stdenv.lib.licenses; [ gpl2 ];
-     maintainers = with stdenv.lib.maintainers; [ bzizou ];
+     license = with lib.licenses; [ gpl2 ];
+     maintainers = with lib.maintainers; [ bzizou ];
   };
 }
 
