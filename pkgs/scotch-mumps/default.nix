@@ -36,7 +36,7 @@ stdenv.mkDerivation rec {
     homepage = http://www.labri.fr/perso/pelegrin/scotch;
     license = lib.licenses.cecill-c;
     maintainers = [ lib.maintainers.bzizou ];
-    platforms = stdenv.lib.platforms.linux;
+    platforms = lib.platforms.linux;
   };
 }
 
