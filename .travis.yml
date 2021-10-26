@@ -17,7 +17,7 @@ matrix:
 install:
 - nix --version
 - echo "trusted-users = $USER" | sudo tee -a /etc/nix/nix.conf
-- echo "sandbox = relaxed" | sudo tee -a /etc/nix/nix.conf
+- echo "sandbox = true" | sudo tee -a /etc/nix/nix.conf
 - echo "require-sigs = false" | sudo tee -a /etc/nix/nix.conf
 - echo "trusted-substituters = http://nix-binary-cache.u-ga.fr/nix.cache https://cache.nixos.org https://gricad.cachix.org" | sudo tee -a /etc/nix/nix.conf
 - echo "substituters = http://nix-binary-cache.u-ga.fr/nix.cache https://cache.nixos.org https://gricad.cachix.org" | sudo tee -a /etc/nix/nix.conf
