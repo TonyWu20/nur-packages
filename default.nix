@@ -41,6 +41,7 @@ rec {
   };
   openmpi3 = pkgs.callPackage ./pkgs/openmpi/3.nix {
         psm2 = psm2;
+        libfabric = libfabric;
   };
   openmpi4 = pkgs.callPackage ./pkgs/openmpi/4.nix {
     enablePrefix = true;
@@ -86,6 +87,17 @@ rec {
 
   # Beagle
   beagle = pkgs.callPackage ./pkgs/beagle  { };
+
+  # Siesta
+  siesta =  pkgs.callPackage ./pkgs/siesta { 
+    useMpi = true;
+    mpi = openmpi3;
+  };
+
+  # osu micro benchmarks
+  osu-micro-benchmarks =  pkgs.callPackage ./pkgs/osu-micro-benchmarks { 
+    mpi = openmpi3;
+  };
 
 }
 

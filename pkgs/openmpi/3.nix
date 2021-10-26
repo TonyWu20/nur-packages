@@ -1,4 +1,4 @@
-{ lib, stdenv, fetchurl, gfortran, perl, libnl, rdma-core, zlib, psm2
+{ stdenv, lib, fetchurl, gfortran, perl, libnl, rdma-core, zlib, psm2, libfabric 
 
 # Enable the Sun Grid Engine bindings
 , enableSGE ? false
@@ -9,30 +9,30 @@
 
 let
   majorVersion = "3.1";
-  minorVersion = "5";
+  minorVersion = "6";
 
 in stdenv.mkDerivation rec {
   name = "openmpi-${majorVersion}.${minorVersion}";
 
   src = fetchurl {
     url = "http://www.open-mpi.org/software/ompi/v${majorVersion}/downloads/${name}.tar.bz2";
-    sha256 = "0cr1yw56227kbd7maj2mh9kncglnki6lvlsnipn5ws3r8mdhgw7v";
+    sha256 = "0yfjl1kdy2xq0897vpcgy31630qphdin3mbl9mb1d9f25sc1s4sh";
   };
 
   postPatch = ''
     patchShebangs ./
   '';
 
-  buildInputs = with stdenv; [ gfortran zlib ]
-    ++ lib.optional isLinux libnl
-    ++ lib.optional isLinux psm2
-    ++ lib.optional (isLinux || isFreeBSD) rdma-core;
+  buildInputs = with lib; [ gfortran zlib ]
+    ++ optional stdenv.isLinux libnl
+    ++ optional stdenv.isLinux [ psm2 libfabric ]
+    ++ optional (stdenv.isLinux || stdenv.isFreeBSD) rdma-core;
 
   nativeBuildInputs = [ perl ];
 
-  configureFlags = with stdenv; [ "--disable-mca-dso" ]
-    ++ lib.optional isLinux  "--with-libnl=${libnl.dev}"
-    ++ lib.optional isLinux  "--with-psm2=${psm2}"
+  configureFlags =  [ "--disable-mca-dso" ]
+    ++ lib.optional stdenv.isLinux  "--with-libnl=${libnl.dev}"
+    ++ lib.optional stdenv.isLinux  [ "--with-psm2=${psm2} --with-libfabric=${libfabric}" ]
     ++ lib.optional enableSGE "--with-sge"
     ++ lib.optional enablePrefix "--enable-mpirun-prefix-by-default"
     ;
