@@ -1,4 +1,4 @@
-{ stdenv, fetchFromGitHub, mpi, python2, python2Packages, autoconf, automake } :
+{ stdenv, lib, fetchFromGitHub, python3, python3Packages, autoconf, automake, mpi } :
 
 stdenv.mkDerivation rec {
   pname = "hp2p";
@@ -12,9 +12,9 @@ stdenv.mkDerivation rec {
   };
 
   enableParallelBuilding = true;
-  nativeBuildInputs = [ autoconf automake python2Packages.wrapPython ];
-  buildInputs = [ mpi ] ++ (with python2Packages; [ python numpy matplotlib plotly ]) ;
-  pythonPath = (with python2Packages; [ numpy matplotlib plotly ]) ; 
+  nativeBuildInputs = [ autoconf automake python3Packages.wrapPython ];
+  buildInputs = [ mpi ] ++ (with python3Packages; [ python numpy matplotlib plotly]) ;
+  pythonPath = (with python3Packages; [ numpy matplotlib plotly ]) ; 
 
   preConfigure = ''
     patchShebangs .
@@ -27,7 +27,7 @@ stdenv.mkDerivation rec {
     wrapPythonPrograms
   '';                 
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "a MPI based benchmark for network diagnostic";
     homepage = https://github.com/cea-hpc/hp2p;
     platforms = platforms.unix;
