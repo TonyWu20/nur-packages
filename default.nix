@@ -52,7 +52,15 @@ rec {
     libfabric = libfabric;
     ucx = ucx;
   };
-  openmpi = openmpi4;
+  openmpi5 = pkgs.callPackage ./pkgs/openmpi/5.nix {
+    enablePrefix = true;
+    fabricSupport = true;
+    libfabric = libfabric;
+    ucx = ucx;
+  };
+
+  openmpi = openmpi5;
+
   psm2 = pkgs.callPackage ./pkgs/psm2 { };
   libfabric = pkgs.callPackage ./pkgs/libfabric { };
   # Now obsolete, by libfabric 1.17 which enables OPX
@@ -117,7 +125,7 @@ rec {
   osu-micro-benchmarks =  pkgs.callPackage ./pkgs/osu-micro-benchmarks { 
     #mpi = openmpi3;
     #mpi = pkgs.mpich;
-    mpi = openmpi4;
+    mpi = openmpi5;
   };
 
   hp2p = pkgs.callPackage ./pkgs/hp2p { mpi = openmpi4; };
