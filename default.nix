@@ -15,7 +15,6 @@ rec {
   intel-compilers-2019 = pkgs.callPackage ./pkgs/intel/2019.nix { };
   intel-oneapi = pkgs.callPackage ./pkgs/intel/oneapi.nix { 
     gdk_pixbuf = pkgs.gdk-pixbuf; 
-    x11 = pkgs.xlibsWrapper;
   };
 
   # iRods
@@ -89,7 +88,8 @@ rec {
   gdl = pkgs.callPackage ./pkgs/gdl { };
 
   # Zonation
-  zonation-core = pkgs.callPackage ./pkgs/zonation-core { };
+  # Requires qt4 which is not maintained anymore
+  #zonation-core = pkgs.callPackage ./pkgs/zonation-core { };
 
   # Scotch with mumps libraries
   scotch-mumps = pkgs.callPackage ./pkgs/scotch-mumps { };
