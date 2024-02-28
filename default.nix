@@ -77,9 +77,10 @@ rec {
   hpl = pkgs.callPackage ./pkgs/hpl { mpi = openmpi4; };
 
   # Trilinos
-  trilinos =  pkgs.callPackage ./pkgs/trilinos { 
-    openmpi = openmpi4;
-  };
+  # Now is upstream
+  #trilinos =  pkgs.callPackage ./pkgs/trilinos { 
+  #  openmpi = openmpi4;
+  #};
 
   # Fate
   fate = pkgs.callPackage ./pkgs/fate { };
