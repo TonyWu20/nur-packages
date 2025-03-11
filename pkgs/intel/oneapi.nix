@@ -106,7 +106,7 @@ stdenv.mkDerivation rec {
     cups
     expat
     libxkbcommon
-    alsaLib
+    alsa-lib
     at-spi2-atk
     xorg.libXcomposite
     xorg.libxshmfence
