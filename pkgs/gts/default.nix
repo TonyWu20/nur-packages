@@ -1,4 +1,4 @@
-{ fetchurl, lib, stdenv, pkgconfig, autoreconfHook, gettext, glib }:
+{ fetchurl, lib, stdenv, pkg-config, autoreconfHook, gettext, glib }:
 
 
 stdenv.mkDerivation rec {
@@ -10,7 +10,7 @@ stdenv.mkDerivation rec {
     sha256 = "0fxpd70gvvjfaiq9ph895bnf3avg6gb9kdf0z2cmbxmvfjmp4gy2";
   };
 
-  nativeBuildInputs = [ pkgconfig autoreconfHook ];
+  nativeBuildInputs = [ pkg-config autoreconfHook ];
   buildInputs = [ gettext ];
   propagatedBuildInputs = [ glib ];
 
