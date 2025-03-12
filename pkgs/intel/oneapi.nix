@@ -34,9 +34,9 @@
 }:
 
 stdenv.mkDerivation rec {
-  version = "2024.0.1.46";
-  hpc_version = "2024.0.1.38";
-  version_dir = "2024.0";
+  version = "2025.0.1.46";
+  hpc_version = "2025.0.1.47";
+  version_dir = "2025.0";
   name = "intel-oneapi-${version}";
 
   # For localy downloaded offline installers
@@ -46,12 +46,12 @@ stdenv.mkDerivation rec {
   sourceRoot = ".";
   srcs = [
     (fetchurl {
-      url = "https://registrationcenter-download.intel.com/akdlm/IRC_NAS/163da6e4-56eb-4948-aba3-debcec61c064/l_BaseKit_p_2024.0.1.46_offline.sh";
-      sha256 = "1sp1fgjv8xj8qxf8nv4lr1x5cxz7xl5wv4ixmfmcg0gyk28cjq1g";
+      url = "https://registrationcenter-download.intel.com/akdlm/IRC_NAS/dfc4a434-838c-4450-a6fe-2fa903b75aa7/intel-oneapi-base-toolkit-2025.0.1.46_offline.sh";
+      sha256 = "094a7872bbdb1c1e1d0e65da553497de819132b298b0ddf624b45003cda82844";
     })
     (fetchurl {
-      url = "https://registrationcenter-download.intel.com/akdlm/IRC_NAS/67c08c98-f311-4068-8b85-15d79c4f277a/l_HPCKit_p_2024.0.1.38_offline.sh";
-      sha256 = "06vpdz51w2v4ncgk8k6y2srlfbbdqdmb4v4bdwb67zsg9lmf8fp9";
+      url = "https://registrationcenter-download.intel.com/akdlm/IRC_NAS/b7f71cf2-8157-4393-abae-8cea815509f7/intel-oneapi-hpc-toolkit-2025.0.1.47_offline.sh";
+      sha256 = "941a4d4ccc05cfb60f5edbe7c2c5e34197cce561c12d565cd8c6fefe6b752fb6";
     })
   ];
 
