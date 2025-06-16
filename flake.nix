@@ -11,11 +11,11 @@
         "x86_64-linux"
         # "aarch64-darwin"
       ];
-      forAllSystems = function: nixpkgs.lib.genAttrs systems (system: function system);
+      forAllSystems = f: nixpkgs.lib.genAttrs systems (system: f system);
     in
     {
       packages = forAllSystems (system: import ./default.nix {
-        pkgs = import nixpkgs { inherit system; };
+        pkgs = import nixpkgs { config.allowUnfree = true; inherit system; };
       });
       checks = forAllSystems (system: self.packages.${system});
     };
